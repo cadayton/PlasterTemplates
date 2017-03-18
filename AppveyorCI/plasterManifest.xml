@@ -6,7 +6,7 @@
     <id>91e36a56-24ff-452f-bb95-3967b6fe8706</id>
     <version>0.1.0</version>
     <title>AppveyorCI</title>
-    <description>a PowerShell module project template for simple CI builds in Appveyor</description>
+    <description>a PowerShell module project template for simple CI builds in Appveyor, with VSCode support</description>
     <author>Matt McNabb</author>
     <tags>Module, Appveyor, Tests, Manifest</tags>
   </metadata>
@@ -22,15 +22,16 @@
     <requireModule name="PSScriptAnalyzer" minimumVersion="1.11.0" message="You'll need PSScriptAnalyzer to check the quality of your code." />
     <requireModule name="PlatyPS" minimumVersion="0.7.6" message="You'll need PlatyPS in order to generate your documentation files." />
 						   
-	  <templateFile source="content\AppveyorCI.psd1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psd1" encoding="UTF8" />
-	  <templateFile source="content\AppveyorCI.psm1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psm1" encoding="UTF8" />
+	  <templateFile source="content\manifest.psd1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psd1" encoding="UTF8" />
+	  <templateFile source="content\module.psm1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psm1" encoding="UTF8" />
     <templateFile source="content\appveyor.yml" destination="build\appveyor.yml" encoding="UTF8" />
-    <templateFile source="content\Common.tests.ps1" destination="tests\Common.tests.ps1" encoding="UTF8" />
-    <templateFile source="content\Module.tests.ps1" destination="tests\${PLASTER_PARAM_ModuleName}.tests.ps1" encoding="UTF8" />
+    <templateFile source="content\common.tests.ps1" destination="tests\common.tests.ps1" encoding="UTF8" />
+    <templateFile source="content\module.tests.ps1" destination="tests\${PLASTER_PARAM_ModuleName}.tests.ps1" encoding="UTF8" />
     <templateFile source="content\build.ps1" destination="build\build.ps1" encoding="UTF8" />
     <templateFile source="content\deploy.ps1" destination="build\deploy.ps1" encoding="UTF8" />
     <templateFile source="content\README.md" destination="README.md" encoding="UTF8" />
     <templateFile source="content\license" destination="${PLASTER_PARAM_ModuleName}\license" encoding="UTF8" />
+    <templateFile source="content\tasks.json" destination=".vscode\tasks.json" encoding="UTF8" />
 
     <file source="" destination="docs" />
     <file source="" destination="${PLASTER_PARAM_ModuleName}\functions" />
