@@ -6,7 +6,7 @@
             Extensions = @(
                 @{
                     Module = "Plaster"
-                    MinimumVersion = "0.3.0"
+                    MinimumVersion = "1.0.1"
                     Details = @{
                         TemplatePaths = "AppveyorCI"
                     }

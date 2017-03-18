@@ -1,4 +1,4 @@
-﻿@{
+@{
 	NestedModules = "<%=$PLASTER_PARAM_ModuleName%>.psm1"
 	ModuleVersion = "0.1.0"
 	GUID = "<%=$PLASTER_Guid1%>"
