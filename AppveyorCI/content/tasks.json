@@ -1,6 +1,6 @@
 {
     "taskName": "build",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "windows": {"command": "${env.windir}\\sysnative\\WindowsPowershell\\v1.0\\PowerShell.exe"},
     "linux": {"command": "/usr/bin/powershell"},
     "osx": {"command": "/usr/local/bin/powershell"},
