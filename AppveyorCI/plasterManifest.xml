@@ -1,10 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <plasterManifest
   schemaVersion="1.0" xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
   <metadata>
     <name>AppveyorCI</name>
     <id>91e36a56-24ff-452f-bb95-3967b6fe8706</id>
-    <version>0.1.0</version>
+    <version>1.0.0</version>
     <title>AppveyorCI</title>
     <description>a PowerShell module project template for simple CI builds in Appveyor, with VSCode support</description>
     <author>Matt McNabb</author>
