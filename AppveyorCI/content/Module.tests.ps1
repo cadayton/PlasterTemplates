@@ -1,3 +1,5 @@
+$ProjectPath = Split-Path $PSScriptRoot
+
 if ($env:APPVEYOR)
 {
     $ModuleName = $env:Appveyor_Project_Name
@@ -5,8 +7,8 @@ if ($env:APPVEYOR)
 }
 else
 {
-    $ModuleName = Split-Path $PSScriptRoot -Leaf
+    $ModuleName = Split-Path $ProjectPath -Leaf
     $Version = "0.1.0"
 }
 
-$ModulePath = Join-Path $PSScriptRoot $ModuleName
+$ModulePath = Join-Path $ProjectPath $ModuleName

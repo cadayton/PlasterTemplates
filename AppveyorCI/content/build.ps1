@@ -1,4 +1,5 @@
-# build variables depending on environment
+$ProjectPath = Split-Path $PSScriptRoot
+
 if ($env:APPVEYOR)
 {
     $ModuleName = $env:APPVEYOR_PROJECT_NAME
@@ -7,12 +8,12 @@ if ($env:APPVEYOR)
 }
 else
 {
-    $ModuleName = Split-Path $PSScriptRoot -Leaf
+    $ModuleName = Split-Path $ProjectPath -Leaf
     $Version = '0.1.0'
     $TestExit = $false
 }
 
-$ModulePath = Join-Path $PSScriptRoot $ModuleName
+$ModulePath = Join-Path $ProjectPath $ModuleName
 
 # Update manifest with version number
 $ManifestPath = Join-Path $ModulePath "$ModuleName.psd1"
@@ -21,7 +22,7 @@ $ManifestData = $ManifestData -replace "ModuleVersion = `"\d+\.\d+\.\d+`"", "Mod
 $ManifestData | Out-File $ManifestPath -Force -Encoding utf8
 
 # build help file
-$DocsPath = Join-Path $PSScriptRoot "docs"
+$DocsPath = Join-Path $ProjectPath "docs"
 $DocsOutPutPath = Join-Path $ModulePath "en-US"
 $null = New-Item -ItemType Directory -Path $DocsOutPutPath -Force
 $null = New-ExternalHelp -Path $DocsPath -OutPutPath $DocsOutPutPath -Force

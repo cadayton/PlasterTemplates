@@ -22,20 +22,30 @@
     <requireModule name="PSScriptAnalyzer" minimumVersion="1.11.0" message="You'll need PSScriptAnalyzer to check the quality of your code." />
     <requireModule name="PlatyPS" minimumVersion="0.7.6" message="You'll need PlatyPS in order to generate your documentation files." />
 						   
+    <!-- module files -->
 	  <templateFile source="content\manifest.psd1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psd1" encoding="UTF8" />
 	  <templateFile source="content\module.psm1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psm1" encoding="UTF8" />
-    <templateFile source="content\appveyor.yml" destination="build\appveyor.yml" encoding="UTF8" />
-    <templateFile source="content\common.tests.ps1" destination="tests\common.tests.ps1" encoding="UTF8" />
-    <templateFile source="content\module.tests.ps1" destination="tests\${PLASTER_PARAM_ModuleName}.tests.ps1" encoding="UTF8" />
-    <templateFile source="content\build.ps1" destination="build\build.ps1" encoding="UTF8" />
-    <templateFile source="content\deploy.ps1" destination="build\deploy.ps1" encoding="UTF8" />
-    <templateFile source="content\README.md" destination="README.md" encoding="UTF8" />
     <templateFile source="content\license" destination="${PLASTER_PARAM_ModuleName}\license" encoding="UTF8" />
-    <templateFile source="content\tasks.json" destination=".vscode\tasks.json" encoding="UTF8" />
-
-    <file source="" destination="docs" />
     <file source="" destination="${PLASTER_PARAM_ModuleName}\functions" />
     <file source="" destination="${PLASTER_PARAM_ModuleName}\helpers" />
     <file source="" destination="${PLASTER_PARAM_ModuleName}\formats" />
+
+    <!-- Appveyor build files -->
+    <templateFile source="content\appveyor.yml" destination="build\appveyor.yml" encoding="UTF8" />
+    <templateFile source="content\build.ps1" destination="build\build.ps1" encoding="UTF8" />
+    <templateFile source="content\deploy.ps1" destination="build\deploy.ps1" encoding="UTF8" />
+    
+    <!-- Pester tests -->
+    <templateFile source="content\common.tests.ps1" destination="tests\common.tests.ps1" encoding="UTF8" />
+    <templateFile source="content\module.tests.ps1" destination="tests\${PLASTER_PARAM_ModuleName}.tests.ps1" encoding="UTF8" />
+    
+    <templateFile source="content\README.md" destination="README.md" encoding="UTF8" />
+
+    <!-- build task for Visual Studio Code -->
+    <templateFile source="content\tasks.json" destination=".vscode\tasks.json" encoding="UTF8" />
+
+    <!-- docs folder for markdown documenation -->
+    <file source="" destination="docs" />
+    
   </content>
 </plasterManifest>
