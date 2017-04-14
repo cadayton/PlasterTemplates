@@ -74,7 +74,7 @@ Pester\Describe "Manifest" {
     }
     
     Pester\It 'has a valid license Uri' {
-        $ManifestHash.PrivateData.Values.LicenseUri | Should Be "https://github.com/<%=$PLASTER_PARAM_GithubUserName%>/<%=$PLASTER_PARAM_ModuleName%>/blob/master/<%=$PLASTER_PARAM_ModuleName%>/license"
+        $ManifestHash.PrivateData.Values.LicenseUri | Should Be "https://github.com/<%=$PLASTER_PARAM_GithubUserName%>/<%=$PLASTER_PARAM_ModuleName%>/blob/master/<%=$PLASTER_PARAM_ModuleName%>/<%=$PLASTER_PARAM_ModuleName%>/license"
     }
     
     Pester\It 'has a valid project Uri' {
