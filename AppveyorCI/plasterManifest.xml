@@ -31,7 +31,7 @@
     <file source="" destination="${PLASTER_PARAM_ModuleName}\formats" />
 
     <!-- Appveyor build files -->
-    <templateFile source="content\appveyor.yml" destination="build\appveyor.yml" encoding="UTF8" />
+    <templateFile source="content\appveyor.yml" destination="appveyor.yml" encoding="UTF8" />
     <templateFile source="content\build.ps1" destination="build\build.ps1" encoding="UTF8" />
     <templateFile source="content\deploy.ps1" destination="build\deploy.ps1" encoding="UTF8" />
     
