@@ -46,6 +46,9 @@
 
     <!-- docs folder for markdown documenation -->
     <file source="" destination="docs" />
+
+    <!-- git ignore file -->
+    <templateFile source="content\ignore" destination=".gitignore" encoding="UTF8" />
     
   </content>
 </plasterManifest>
