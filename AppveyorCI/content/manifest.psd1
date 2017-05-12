@@ -11,7 +11,7 @@
 	PrivateData = @{
         PSData = @{
             #Tags = ""
-            LicenseUri = "https://github.com/<%=$PLASTER_PARAM_GithubUserName%>/<%=$PLASTER_PARAM_ModuleName%>/blob/master/<%=$PLASTER_PARAM_ModuleName%>/<%=$PLASTER_PARAM_ModuleName%>/license"
+            LicenseUri = "https://github.com/<%=$PLASTER_PARAM_GithubUserName%>/<%=$PLASTER_PARAM_ModuleName%>/blob/master/<%=$PLASTER_PARAM_ModuleName%>/license"
             ProjectUri = "https://github.com/<%=$PLASTER_PARAM_GithubUserName%>/<%=$PLASTER_PARAM_ModuleName%>"
             #ReleaseNotes = ""
         }
