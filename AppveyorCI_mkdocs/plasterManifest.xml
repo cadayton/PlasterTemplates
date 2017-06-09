@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plasterManifest
+  schemaVersion="1.0" xmlns="http://www.microsoft.com/schemas/PowerShell/Plaster/v1">
+  <metadata>
+    <name>AppveyorCAD</name>
+    <id>91e36a56-24ff-452f-bb95-3967b6fe8999</id>
+    <version>1.0.0</version>
+    <title>AppveyorCAD</title>
+    <description>a PowerShell module project template for simple CI builds in Appveyor, with VSCode support</description>
+    <author>Matt McNabb mod by cadayton</author>
+    <tags>Module, Appveyor, Tests, Manifest, mkdocs</tags>
+  </metadata>
+  <parameters>
+		<parameter name="ModuleName" type="text" prompt="Enter the name of the module"/>
+    <parameter name="Author" type="text" prompt="Enter the author of the module" default=""/>
+    <parameter name="Description" type="text" prompt="Enter a description for the module" default=""/>
+    <parameter name="MinimumPowerShellVersion" type="text" prompt="Enter the lowest support version of PowerShell for the module" default=""/>
+    <parameter name="GithubUserName" type="text" prompt="Enter your Github username" default=""/>
+    <parameter name="FunctionFolders" type="multichoice" prompt="Please select folders to include" default='0,1'>
+      <choice label="&amp;Public" help="Adds a public folder for public functions" value="Public" />
+      <choice label="&amp;Local" help="Adds a local folder for private functions" value="Local" />
+      <choice label="&amp;Classes" help="Adds a classes folder to module root" value="Classes" />
+      <choice label="&amp;Bin" help="Adds a binaries folder to module root" value="Bin" />
+      <choice label="&amp;Data" help="Adds a data folder to module root" value="Data" />
+    </parameter>
+  </parameters>
+  <content>
+    <requireModule name="Pester" minimumVersion="4.0.2" message="You'll need Pester to run the tests in your build." />
+    <requireModule name="PSScriptAnalyzer" minimumVersion="1.11.0" message="You'll need PSScriptAnalyzer to check the quality of your code." />
+    <requireModule name="PlatyPS" minimumVersion="0.7.6" message="You'll need PlatyPS in order to generate your documentation files." />
+						   
+    <!-- module files -->
+	  <templateFile source="content\manifest.psd1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psd1" encoding="UTF8-NoBOM" />
+	  <templateFile source="content\module.psm1" destination="${PLASTER_PARAM_ModuleName}\${PLASTER_PARAM_ModuleName}.psm1" encoding="UTF8-NoBOM" />
+    <templateFile source="content\license" destination="License" encoding="UTF8-NoBOM" />
+    <message>Creating folders for module: $PLASTER_PARAM_ModuleName </message>
+    <file condition='$PLASTER_PARAM_FunctionFolders -contains "Public"' destination='${PLASTER_PARAM_ModuleName}\Public\' source='' />
+    <file condition='$PLASTER_PARAM_FunctionFolders -contains "Local"' destination='${PLASTER_PARAM_ModuleName}\Local\' source='' />
+    <file condition='$PLASTER_PARAM_FunctionFolders -contains "Classes"' destination='${PLASTER_PARAM_ModuleName}\Classes\' source='' />
+    <file condition='$PLASTER_PARAM_FunctionFolders -contains "Bin"' destination='${PLASTER_PARAM_ModuleName}\Bin\' source='' />
+    <file condition='$PLASTER_PARAM_FunctionFolders -contains "Data"' destination='${PLASTER_PARAM_ModuleName}\Data\' source='' />
+
+
+    <!-- Appveyor build files -->
+    <templateFile source="content\appveyor.yml" destination="appveyor.yml" encoding="UTF8-NoBOM" />
+    <templateFile source="content\build.ps1" destination="build\build.ps1" encoding="UTF8-NoBOM" />
+    <templateFile source="content\deploy.ps1" destination="build\deploy.ps1" encoding="UTF8-NoBOM" />
+    
+    <!-- Pester tests -->
+    <templateFile source="content\common.tests.ps1" destination="tests\common.tests.ps1" encoding="UTF8-NoBOM" />
+    <templateFile source="content\module.tests.ps1" destination="tests\${PLASTER_PARAM_ModuleName}.tests.ps1" encoding="UTF8-NoBOM" />
+    
+    <templateFile source="content\README.md" destination="README.md" encoding="UTF8-NoBOM" />
+
+    <!-- build task for Visual Studio Code -->
+    <templateFile source="content\tasks.json" destination=".vscode\tasks.json" encoding="UTF8-NoBOM" />
+    <templateFile source="content\settings.json" destination=".vscode\settings.json" encoding="UTF8-NoBOM" />
+
+    <!-- docs folder for markdown documenation & mkdocs ReadTheDocs.org -->
+    <file source="" destination="docs" />
+    <file source="" destination="docs/images" />
+    <templateFile source='content\mkdocs.yml' destination='mkdocs.yml' encoding="UTF8-NoBOM" />
+    <templateFile source='content\index.md' destination='docs\index.md' encoding="UTF8-NoBOM" />
+
+    <!-- git ignore file -->
+    <templateFile source="content\ignore" destination=".gitignore" encoding="UTF8-NoBOM" />
+    
+  </content>
+</plasterManifest>

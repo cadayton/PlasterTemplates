@@ -11,6 +11,13 @@
                         TemplatePaths = "AppveyorCI"
                     }
                 }
+                @{
+                    Module = "Plaster"
+                    MinimumVersion = "1.0.1"
+                    Details = @{
+                        TemplatePaths = "AppveyorCI_mkdocs"
+                    }
+                }
             )
         }
     }
